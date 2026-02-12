@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="bag.css">
+  <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <title>Document</title>
+</head>
+<body>
+  <header>
+        <a href="#"><img class="logo" src="images/logo.jpg" alt="logo"></a>
+        <nav class="navbar">
+            <a href="index.html">Cakes</a>
+            <a href="pastrey.html">Pastrey</a>
+            <a href="modified.html">Modified Cake</a>
+            <a href="decoration.html">Decoration</a>
+            <a href="cookies.html">Cookies</a>
+        </nav>
+        <div class="search">
+            <span class="material-symbols-outlined search_icon">search</span>
+            <input class="search_input" placeholder="Search for products, brands and more">
+        </div>
+        <div class="profile">
+            <span class="material-symbols-outlined person_icon">person</span>
+            <span class="action">Profile</span>
+        </div>
+        <div class="profile">
+            <span class="material-symbols-outlined cart_icon">shopping_bag</span>
+            <a href="bag.html"><span class="action">Bag</span></a>
+            <span class="bag-item-count"><sup>0</sup></span>
+        </div>
+
+        </div>
+    </header>
+
+<main>
+    <div class="bag-page">
+        <div class="bag-items-container">
+            <!-- Items will be loaded here dynamically by bag.js -->
+        </div>
+        
+        <div class="bag-summary">
+            <div class="price-header">PRICE DETAILS</div>
+            <div class="price-item">
+                <span class="price-item-tag">Total MRP</span>
+                <span class="price-item-value">₹0</span>
+            </div>
+            <div class="price-item">
+                <span class="price-item-tag">Discount on MRP</span>
+                <span class="price-item-value priceDetail-base-discount">-₹0</span>
+            </div>
+            <div class="price-item">
+                <span class="price-item-tag">Convenience Fee</span>
+                <span class="price-item-value">₹0</span>
+            </div>
+            <hr>
+            <div class="price-footer">
+                <span class="price-item-tag">Total Amount</span>
+                <span class="price-item-value">₹0</span>
+            </div>
+            <button class="btn-place-order">
+                <div class="css-xjhrni">PLACE ORDER</div>
+            </button>
+        </div>
+    </div>
+</main>
+
+<script src="cake.js"></script>
+<script src="pastrey.js"></script>
+<script src="modified.js"></script>
+<script src="decoration.js"></script>
+<script src="cookies.js"></script>
+<script src="bag.js"></script>
+
+  
+</body>
+</html>

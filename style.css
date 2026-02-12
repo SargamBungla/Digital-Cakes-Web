@@ -1,0 +1,312 @@
+/* ===== COLOR PALETTE =====
+Primary: #CF80A9 (Pink)
+Secondary: #6A7DAA (Blue-Gray)
+Tertiary: #D1B5DE (Light Purple)
+Supporting: #B49A88, #CDB5A6, #A99083, #C0A79F, #A3ADD2
+========================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
+    background-color: #D1B5DE; /* Tertiary - Light Purple Background */
+}
+
+.logo {
+    width: 50px;
+    margin: 5px 10px;
+    border-radius: 50%;
+    border: 3px solid #6A7DAA; /* Secondary border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(207, 128, 169, 0.4);
+}
+
+header {
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #CF80A9 0%, #D1B5DE 100%); /* Primary gradient */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 5px 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar {
+    display: flex;
+    min-width: 500px;
+    justify-content: space-evenly;
+}
+
+.navbar a {
+    font-size: 13px;
+    letter-spacing: 0.3px;
+    color: #fff; /* White text for better contrast */
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 20px 40px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: #6A7DAA; /* Secondary */
+    transition: width 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #6A7DAA; /* Secondary color on hover */
+}
+
+.navbar a:hover::after {
+    width: 60%;
+}
+
+.search {
+    display: flex;
+    height: 40px;
+    min-width: 180px;
+    width: 25%;
+    align-items: center;
+    margin: 10px 20px;
+}
+
+.search_icon {
+    box-sizing: content-box;
+    height: 20px;
+    padding: 10px;
+    background-color: #f5f5f6;
+    color: #6A7DAA; /* Secondary */
+    font-weight: 300;
+    border-radius: 4px 0 0 4px;
+}
+
+.search_input {
+    color: #696e79;
+    background-color: #f5f5f6;
+    flex-grow: 1;
+    height: 40px;
+    border: 0;
+    border-radius: 0 4px 4px 0;
+    padding: 0 10px;
+}
+
+.search_input:focus {
+    outline: 2px solid #CF80A9; /* Primary */
+}
+
+.profile {
+    margin: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.profile:hover {
+    transform: translateY(-2px);
+}
+
+.profile .action {
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.profile:hover .action {
+    color: #6A7DAA; /* Secondary */
+}
+
+/* ===== MAIN SECTION ===== */
+.container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.item-container {
+    width: 250px;
+    margin-bottom: 20px;
+    padding: 15px;
+    flex-shrink: 0;
+    background-color: #fff;
+    border-radius: 12px;
+    margin: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.item-container:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(207, 128, 169, 0.3);
+}
+
+/* ===== IMAGE HOVER EFFECTS ===== */
+.cake-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    position: relative;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+/* Zoom and Brightness Effect on Hover */
+.item-container:hover .cake-img {
+    transform: scale(1.08);
+    filter: brightness(1.1);
+}
+
+/* Optional: Add overlay effect on hover */
+.item-container::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    height: 200px;
+    background: linear-gradient(135deg, rgba(207, 128, 169, 0.3), rgba(106, 125, 170, 0.3));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    border-radius: 8px;
+    z-index: 1;
+}
+
+.item-container:hover::before {
+    opacity: 1;
+}
+
+.rating {
+    font-weight: 600;
+    margin-top: 10px;
+    color: #6A7DAA; /* Secondary */
+}
+
+.name {
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 5px;
+    color: #333;
+}
+
+.ingredient {
+    color: #575a5f;
+    font-size: 14px;
+}
+
+.price {
+    font-weight: 600;
+    color: #CF80A9; /* Primary */
+    font-size: 18px;
+}
+
+.mrp {
+    color: #575a5f;
+    text-decoration: line-through;
+    margin-left: 5px;
+}
+
+.offer {
+    color: #4caf50;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+.btn {
+    margin-top: 15px;
+    padding: 12px 40px;
+    font-size: 16px;
+    width: 100%;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #CF80A9, #D1B5DE); /* Primary to Tertiary */
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(207, 128, 169, 0.3);
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #6A7DAA, #A3ADD2); /* Secondary gradient */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(106, 125, 170, 0.4);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.bag-item-count {
+    background-color: #CF80A9; /* Primary */
+    white-space: nowrap;
+    text-align: center;
+    line-height: 18px;
+    padding: 0 6px;
+    height: 18px;
+    position: relative;
+    border-radius: 50%;
+    font-size: 12px;
+    color: #fff;
+    left: 13px;
+    top: -44px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.box,
+.dog,
+.cat,
+.fish {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .navbar {
+        min-width: auto;
+        flex-wrap: wrap;
+    }
+    
+    .navbar a {
+        padding: 15px 20px;
+        font-size: 12px;
+    }
+    
+    .item-container {
+        width: calc(50% - 20px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .item-container {
+        width: 100%;
+    }
+}
