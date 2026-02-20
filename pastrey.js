@@ -15,7 +15,7 @@ const pastryes = [
         id: 21,
         name: 'Black Forest Cake',
         ingredient:'Cherry Deligh 🍒',
-        image:'images/blackforestpastrey.jpg',
+        image:'images/blackforestPastrey.jpg',
         rating:'4.8 ⭐ 1250',
         price:30,
         mrp:50,
