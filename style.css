@@ -1,4 +1,20 @@
-/* ===== RESET ===== */
+/* ========================================
+   BUNGLA BAKERY - FULLY RESPONSIVE CSS
+   Mobile-First Approach with Media Queries
+   ======================================== */
+
+/* ===== COLOR PALETTE =====
+Primary: #CF80A9 (Pink)
+Secondary: #6A7DAA (Blue-Gray)
+Tertiary: #D1B5DE (Light Purple)
+Supporting: #B49A88, #CDB5A6, #A99083, #C0A79F, #A3ADD2
+========================== */
+
+/* ========================================
+   BASE STYLES (Mobile First - Default)
+   These styles apply to ALL screen sizes
+   ======================================== */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,159 +23,621 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
     background-color: #D1B5DE;
-}
-
-/* ===== GLOBAL ===== */
-img {
-    max-width: 100%;
-    height: auto;
+    overflow-x: hidden;
 }
 
 a {
     text-decoration: none;
 }
 
-/* ===== HEADER ===== */
+/* ========================================
+   HEADER - MOBILE FIRST
+   Mobile: Stacked layout
+   ======================================== */
+
 header {
     display: flex;
-    justify-content: space-between;
-    background: linear-gradient(135deg, #CF80A9, #D1B5DE);
-    padding: 10px;
-    flex-wrap: wrap;
+    flex-direction: column;  /* Stack vertically on mobile */
     align-items: center;
+    padding: 10px;
+    background: linear-gradient(135deg, #CF80A9 0%, #D1B5DE 100%);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
     width: 50px;
+    height: 50px;
     border-radius: 50%;
     border: 3px solid #6A7DAA;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 10px;
 }
 
-/* NAVBAR */
+.logo:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(207, 128, 169, 0.4);
+}
+
+/* ========================================
+   NAVIGATION - MOBILE FIRST
+   Mobile: Vertical stack
+   ======================================== */
+
 .navbar {
     display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 5px;
 }
 
 .navbar a {
-    color: white;
-    font-weight: 600;
-    padding: 10px 15px;
-    font-size: 13px;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 12px 20px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    border-radius: 5px;
 }
 
-/* SEARCH */
+.navbar a::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: #6A7DAA;
+    transition: width 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: rgba(106, 125, 170, 0.2);
+    color: #6A7DAA;
+}
+
+.navbar a:hover::after {
+    width: 60%;
+}
+
+/* ========================================
+   SEARCH BAR - MOBILE FIRST
+   ======================================== */
+
 .search {
     display: flex;
-    width: 250px;
+    width: 90%;
+    max-width: 500px;
+    height: 40px;
+    margin: 10px 0;
 }
 
 .search_icon {
+    box-sizing: content-box;
+    height: 20px;
     padding: 10px;
-    background: #eee;
+    background-color: #f5f5f6;
+    color: #6A7DAA;
+    font-weight: 300;
+    border-radius: 4px 0 0 4px;
 }
 
 .search_input {
+    color: #696e79;
+    background-color: #f5f5f6;
     flex: 1;
-    border: none;
-    padding: 10px;
+    height: 40px;
+    border: 0;
+    border-radius: 0 4px 4px 0;
+    padding: 0 10px;
+    font-size: 14px;
 }
 
-/* PROFILE */
+.search_input:focus {
+    outline: 2px solid #CF80A9;
+}
+
+/* ========================================
+   PROFILE & BAG
+   ======================================== */
+
 .profile {
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: white;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    min-height: 44px;
+    min-width: 44px;
+}
+
+.profile:hover {
+    transform: translateY(-2px);
+}
+
+.profile .action {
+    color: #fff;
     font-size: 12px;
+    margin-top: 5px;
+}
+
+.profile:hover .action {
+    color: #6A7DAA;
 }
 
 .bag-item-count {
-    background: #CF80A9;
+    background-color: #CF80A9;
+    white-space: nowrap;
+    text-align: center;
+    line-height: 18px;
+    padding: 0 6px;
+    height: 18px;
+    position: relative;
     border-radius: 50%;
     font-size: 12px;
-    padding: 2px 6px;
-    position: relative;
-    top: -10px;
+    color: #fff;
+    left: 13px;
+    top: -44px;
+    font-weight: 700;
+    cursor: pointer;
 }
 
-/* ===== PRODUCTS ===== */
+/* ========================================
+   MAIN CONTAINER - MOBILE FIRST
+   ======================================== */
+
 .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px 10px;
+    gap: 15px;
 }
+
+/* ========================================
+   PRODUCT CARDS - MOBILE FIRST
+   Mobile: 1 column (full width)
+   ======================================== */
 
 .item-container {
-    background: white;
+    width: calc(100% - 20px);
+    max-width: 400px;
     padding: 15px;
-    border-radius: 10px;
-    transition: 0.3s;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .item-container:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(207, 128, 169, 0.3);
 }
+
+/* ========================================
+   PRODUCT IMAGES
+   ======================================== */
 
 .cake-img {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    transition: all 0.4s ease;
+    cursor: pointer;
 }
 
-/* TEXT */
+.item-container:hover .cake-img {
+    transform: scale(1.08);
+    filter: brightness(1.1);
+}
+
+.item-container::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    height: 200px;
+    background: linear-gradient(135deg, rgba(207, 128, 169, 0.3), rgba(106, 125, 170, 0.3));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+    border-radius: 8px;
+    z-index: 1;
+}
+
+.item-container:hover::before {
+    opacity: 1;
+}
+
+/* ========================================
+   PRODUCT INFO
+   ======================================== */
+
+.rating {
+    font-weight: 600;
+    margin-top: 10px;
+    color: #6A7DAA;
+    font-size: 14px;
+}
+
 .name {
     font-weight: 600;
+    font-size: 16px;
+    margin-top: 5px;
+    color: #333;
+}
+
+.ingredient {
+    color: #575a5f;
+    font-size: 14px;
 }
 
 .price {
+    font-weight: 600;
     color: #CF80A9;
-    font-weight: bold;
+    font-size: 18px;
 }
 
 .mrp {
+    color: #575a5f;
     text-decoration: line-through;
     margin-left: 5px;
 }
 
 .offer {
-    color: green;
+    color: #4caf50;
+    font-weight: 600;
+    margin-left: 5px;
 }
 
-/* BUTTON */
+/* ========================================
+   BUTTONS
+   ======================================== */
+
 .btn {
+    margin-top: 15px;
+    padding: 12px 20px;
+    font-size: 14px;
     width: 100%;
-    padding: 10px;
-    margin-top: 10px;
     border: none;
-    border-radius: 20px;
-    background: #CF80A9;
-    color: white;
+    border-radius: 25px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #CF80A9, #D1B5DE);
+    color: #fff;
     cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(207, 128, 169, 0.3);
+    min-height: 44px;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
+.btn:hover {
+    background: linear-gradient(135deg, #6A7DAA, #A3ADD2);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(106, 125, 170, 0.4);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.box,
+.dog,
+.cat,
+.fish {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 15px 10px;
+    gap: 15px;
+}
+
+/* ========================================
+   MEDIA QUERY: LARGE PHONES (Landscape)
+   Breakpoint: 480px
+   ======================================== */
+
+@media screen and (min-width: 480px) {
+    .container,
+    .box,
+    .dog,
+    .cat,
+    .fish {
+        padding: 20px 15px;
+    }
+    
     .search {
-        width: 100%;
+        width: 80%;
     }
-
-    header {
-        justify-content: center;
-        gap: 10px;
+    
+    .navbar a {
+        width: 80%;
     }
 }
 
-@media (max-width: 480px) {
-    .navbar a {
-        font-size: 11px;
-        padding: 8px;
-    }
+/* ========================================
+   MEDIA QUERY: SMALL TABLETS
+   Breakpoint: 600px
+   Changes: 2 COLUMN GRID
+   ======================================== */
 
-    .btn {
-        font-size: 14px;
+@media screen and (min-width: 600px) {
+    /* IMPORTANT: Products become 2 columns */
+    .item-container {
+        width: calc(50% - 20px);
+        max-width: none;
     }
+    
+    .cake-img {
+        height: 220px;
+    }
+    
+    .item-container::before {
+        height: 220px;
+    }
+}
+
+/* ========================================
+   MEDIA QUERY: TABLETS (Landscape)
+   Breakpoint: 768px
+   Changes: HORIZONTAL HEADER, inline nav
+   ======================================== */
+
+@media screen and (min-width: 768px) {
+    /* Header becomes horizontal */
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px 20px;
+        align-items: center;
+    }
+    
+    .logo {
+        margin-bottom: 0;
+        margin-right: 15px;
+    }
+    
+    /* Navigation becomes horizontal */
+    .navbar {
+        flex-direction: row;
+        width: auto;
+        gap: 0;
+        min-width: 400px;
+    }
+    
+    .navbar a {
+        padding: 20px 25px;
+        font-size: 12px;
+        width: auto;
+        border-radius: 0;
+    }
+    
+    .navbar a::after {
+        bottom: 15px;
+    }
+    
+    .search {
+        width: 250px;
+        margin: 0 15px;
+    }
+    
+    .profile {
+        margin: 0 10px;
+    }
+}
+
+/* ========================================
+   MEDIA QUERY: MEDIUM LAPTOPS
+   Breakpoint: 900px
+   ======================================== */
+
+@media screen and (min-width: 900px) {
+    .container,
+    .box,
+    .dog,
+    .cat,
+    .fish {
+        padding: 25px 20px;
+        gap: 20px;
+    }
+    
+    .search {
+        width: 300px;
+    }
+    
+    .navbar {
+        min-width: 450px;
+    }
+    
+    .navbar a {
+        padding: 20px 30px;
+        font-size: 13px;
+    }
+}
+
+/* ========================================
+   MEDIA QUERY: DESKTOP
+   Breakpoint: 1024px
+   Changes: 3 COLUMN GRID, max-width
+   ======================================== */
+
+@media screen and (min-width: 1024px) {
+    .container,
+    .box,
+    .dog,
+    .cat,
+    .fish {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 30px 25px;
+    }
+    
+    /* IMPORTANT: Products become 3 columns */
+    .item-container {
+        width: calc(33.333% - 20px);
+    }
+    
+    .cake-img {
+        height: 240px;
+    }
+    
+    .item-container::before {
+        height: 240px;
+    }
+    
+    .navbar {
+        min-width: 500px;
+    }
+    
+    .navbar a {
+        padding: 20px 35px;
+    }
+    
+    .search {
+        width: 350px;
+        margin: 0 20px;
+    }
+    
+    .btn {
+        font-size: 16px;
+        padding: 14px 40px;
+    }
+}
+
+/* ========================================
+   MEDIA QUERY: LARGE DESKTOP
+   Breakpoint: 1280px
+   ======================================== */
+
+@media screen and (min-width: 1280px) {
+    .navbar a {
+        padding: 20px 40px;
+        font-size: 13px;
+    }
+    
+    .search {
+        width: 400px;
+    }
+    
+    .container,
+    .box,
+    .dog,
+    .cat,
+    .fish {
+        padding: 35px 30px;
+    }
+}
+
+/* ========================================
+   MEDIA QUERY: EXTRA LARGE SCREENS
+   Breakpoint: 1440px
+   Changes: 4 COLUMN GRID
+   ======================================== */
+
+@media screen and (min-width: 1440px) {
+    /* IMPORTANT: Products become 4 columns */
+    .item-container {
+        width: calc(25% - 20px);
+    }
+    
+    .container,
+    .box,
+    .dog,
+    .cat,
+    .fish {
+        max-width: 1600px;
+    }
+}
+
+/* ========================================
+   MEDIA QUERY: ULTRA WIDE
+   Breakpoint: 1920px
+   ======================================== */
+
+@media screen and (min-width: 1920px) {
+    .container,
+    .box,
+    .dog,
+    .cat,
+    .fish {
+        max-width: 1800px;
+        padding: 40px;
+    }
+    
+    .item-container {
+        width: calc(25% - 25px);
+    }
+    
+    .cake-img {
+        height: 260px;
+    }
+    
+    .item-container::before {
+        height: 260px;
+    }
+}
+
+/* ========================================
+   UTILITIES
+   ======================================== */
+
+.hide-mobile {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .hide-mobile {
+        display: block;
+    }
+}
+
+.hide-desktop {
+    display: block;
+}
+
+@media screen and (min-width: 768px) {
+    .hide-desktop {
+        display: none;
+    }
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a:focus,
+button:focus,
+input:focus {
+    outline: 2px solid #CF80A9;
+    outline-offset: 2px;
+}
+
+a,
+button {
+    -webkit-tap-highlight-color: transparent;
 }
